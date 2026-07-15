@@ -16,14 +16,13 @@ Font Awesome (v6.5.1):  High-quality vector icons for UI elements.
 Google Fonts: "Poppins" typography for a premium, clean design.
 
 📂 Project Structure
-
-techlearn-academy/
-├── Images/
-│   ├── learn.webp
+OIBSIP-WebDevelopment-L1-T1-LandingPage/
+|_mages/
+├── learn.webp
 │   ├── ACAADEMY.jpg
 │   ├── OIP.webp
 │   ├── ai.png
-│   └── UI.jpg
+│   └── UI.jpg   
 ├── index.html
 ├── style.css
 └── README.md
