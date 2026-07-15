@@ -16,13 +16,16 @@ Font Awesome (v6.5.1):  High-quality vector icons for UI elements.
 Google Fonts: "Poppins" typography for a premium, clean design.
 
 📂 Project Structure
+
 OIBSIP-WebDevelopment-L1-T1-LandingPage/
-|_mages/
-├── learn.webp
+│
+├── Images/
+│   ├── learn.webp
 │   ├── ACAADEMY.jpg
-│   ├── OIP.webp
-│   ├── ai.png
+│   ├──OIP.webp
+│   ├──ai.png
 │   └── UI.jpg   
+│
 ├── index.html
 ├── style.css
 └── README.md
