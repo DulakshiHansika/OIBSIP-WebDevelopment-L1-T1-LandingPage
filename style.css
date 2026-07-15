@@ -1,0 +1,507 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght=400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --bg-color: #f7f1fb;
+    --header-color: #280231;
+    --primary-color: #5d3fd3;
+    --secondary-color: #3b1e54;
+    --accent-color: #ffb300;
+    --card-color: #ffffff;
+    --text-color: #1e1b4b;
+    --light-color: #6b7280;
+    --boxcolor: #0e0822;
+    --review-card-bg: rgb(216, 198, 238)eb;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--card-color);
+    color: var(--text-color);
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 8%;
+    background: var(--header-color);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+}
+
+.logo i, .logo span {
+    color: var(--accent-color);
+}
+
+nav ul {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+
+nav ul li a {
+    font-size: 1.6rem;
+    color: white;
+    transition: .3s;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    padding: 10rem 12% 5rem; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5rem;
+}
+
+.hero-text {
+    max-width: 60rem;
+}
+
+.hero-text h1 {
+    font-size: 6rem;
+    line-height: 1.2;
+    color: var(--secondary-color);
+}
+
+.hero-text span {
+    color: var(--primary-color);
+}
+
+.hero-text p {
+    font-size: 1.8rem;
+    color: var(--light-color);
+    margin: 2rem 0;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1.3rem 3rem;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 3rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px var(--primary-color);
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 1.3rem 3rem;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 3rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-image::before {
+    content: '';
+    position: absolute;
+    width: 45rem;
+    height: 45rem;
+    background: linear-gradient(45deg, rgba(93, 63, 211, 0.2), rgba(255, 179, 0, 0.2));
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: -1;
+    animation: pulseBg 6s infinite alternate ease-in-out;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 45rem;
+    height: 45rem;
+    object-fit: cover; /* Ensures the image fills the blob shape properly */
+    
+    /* Smooth organic shape masking */
+    border-radius: 60% 40% 70% 30% / 40% 50% 50% 60%; 
+    
+    box-shadow: 0 15px 30px rgba(93, 63, 211, 0.15);
+    animation: organicFloat 6s infinite ease-in-out;
+    transition: .5s ease;
+}
+
+.hero-image img:hover {
+    /* Changes shape slightly on hover for a dynamic effect */
+    border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%;
+}
+
+/* ANIMATIONS */
+@keyframes organicFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        border-radius: 60% 40% 70% 30% / 40% 50% 50% 60%;
+    }
+    50% {
+        transform: translateY(-15px) rotate(2deg);
+        border-radius: 45% 55% 40% 60% / 55% 45% 55% 45%;
+    }
+}
+
+@keyframes pulseBg {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    100% {
+        transform: scale(1.1) translate(10px, -10px);
+    }
+}
+
+/* COMMON SECTION */
+section {
+    padding: 10rem 8% 8rem; /* Header එක නිසා section වලට ලස්සනට ඉඩ තියාගන්න padding වැඩි කළා */
+}
+
+h2 {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 5rem;
+    color: var(--secondary-color);
+}
+
+h2 span {
+    color: var(--primary-color);
+}
+
+/* ABOUT */
+.about {
+    background-color: var(--card-color);
+    padding: 13rem 12% 2rem; 
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+
+.about-image img {
+    width: 55rem;
+    border-radius: 2rem;
+    object-fit: cover;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h3 {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.about-text p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: var(--light-color);
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+/* COURSES */
+.courses {
+    background: var(--card-color);
+    padding: 13rem 12% 2rem; 
+}
+.course-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.course-card {
+    width: 38rem;
+    padding: 3rem 0;
+    background: var(--card-color); 
+    border-radius: 1rem;
+    text-align: center;
+    transition: .4s ease;
+    border: 2px solid rgba(93, 63, 211, 0.1); 
+    box-shadow: 0 10px 20px rgba(40, 2, 49, 0.05); 
+    overflow: hidden;  
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color); 
+    box-shadow: 0 15px 30px rgba(93, 63, 211, 0.2); 
+}
+
+.course-card img {
+    width: 100%;             
+    height: 20rem;          
+    object-fit: cover;       
+    margin-bottom: 1rem;  
+    margin-top: -3rem;       
+}
+
+.course-card h3 {
+    font-size: 2.3rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color); 
+}
+
+.course-card p {
+    font-size: 1.5rem;
+    color: var(--light-color);
+    line-height: 1.6;
+}
+
+.course-card h3,
+.course-card p {
+    padding: 0 3rem;
+}
+
+
+/* REVIEWS */
+.reviews {
+    background: var(--review-card-bg);
+    padding: 19rem 12% 2rem;
+}
+
+.reviews-container {
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    align-items: stretch; 
+    gap: 4rem; 
+    width: 100%;
+    max-width: 120rem;
+    margin: 0 auto;
+    flex-wrap: wrap; 
+}
+
+.review-card {
+    background: var(--bg-color);
+    padding: 4rem 3rem;
+    border-radius: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(40, 2, 49, 0.05);
+    border: 2px solid rgba(93, 63, 211, 0.05);
+    flex: 1;
+    min-width: 30rem; /* Prevents cards from getting too narrow */
+    max-width: 36rem; /* Standardizes the maximum card size */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: .3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 30px rgba(93, 63, 211, 0.15);
+}
+
+.review-card p {
+    font-size: 1.6rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--light-color);
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.review-card h4 {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.review-card span {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* CONTACT SECTION */
+.contact {
+    background: var(--card-color);
+    padding: 12rem 12% 2rem; 
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.info-box {
+    background: var(--boxcolor);
+    padding: 3rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    flex: 1;
+    min-width: 25rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: .3s;
+}
+
+.info-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(93, 63, 211, 0.1);
+}
+
+.info-box i {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.info-box h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--bg-color);
+}
+
+.info-box p {
+    font-size: 1.6rem;
+    color: var(--card-color);
+}
+
+.contact-social {
+    text-align: center;
+}
+
+.contact-social h3 {
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    background: var(--bg-color);
+    color: var(--secondary-color);
+    font-size: 2rem;
+    transition: .3s;
+}
+
+.social a:hover {
+    background: var(--accent-color);
+    color: var(--header-color);
+    transform: translateY(-5px);
+}
+
+
+/* FOOTER SECTION */
+footer {
+    background: var(--header-color);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+footer h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+footer h2 span {
+    color: var(--accent-color);
+}
+
+.copyright {
+    color: var(--light-color);
+    font-size: 1.4rem;
+    margin-top: 1rem;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 600px) {
+    .contact-info {
+        flex-direction: column;
+    }
+}
